@@ -1,0 +1,80 @@
+openapi: 3.0.4
+info:
+  title: DNSSEC Checker
+  description: >-
+    DNSSEC Checker validates the DNSSEC (Domain Name System Security Extensions)
+    configuration of a domain. It verifies that DNS responses are authenticated
+    and haven't been tampered with.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/dnsseccheck:
+    get:
+      summary: Check DNSSEC
+      description: Validate DNSSEC configuration for a domain
+      operationId: dnsseccheck
+      parameters:
+        - name: domain
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The domain name to check DNSSEC configuration for
+          example: cloudflare.com
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  domain: cloudflare.com
+                  dnssecEnabled: true
+                  valid: true
+                  records:
+                    dnskey: 3
+                    ds: 2
+                    nsec: NSEC3
+                  errors: []
+                  details:
+                    dnskeyCount: 3
+                    dsCount: 2
+                  status: DNSSEC is properly configured with DS records at parent
+                  recommendation: DNSSEC is properly configured
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
