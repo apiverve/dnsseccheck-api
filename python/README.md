@@ -230,8 +230,9 @@ from apiverve_dnssecchecker.apiClient import DnsseccheckAPIClient
 
 api = DnsseccheckAPIClient("[YOUR_API_KEY]")
 
+query = { "domain": "cloudflare.com" }
+
 try:
-    query = { "domain": "cloudflare.com" }
     result = api.execute(query)
     print(result)
 finally:
