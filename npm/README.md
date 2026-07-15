@@ -136,7 +136,9 @@ async function makeRequest() {
       "dsCount": 2
     },
     "status": "DNSSEC is properly configured with DS records at parent",
-    "recommendation": "DNSSEC is properly configured"
+    "recommendation": "DNSSEC is properly configured",
+    "riskScore": 5,
+    "riskLevel": "low"
   }
 }
 ```
