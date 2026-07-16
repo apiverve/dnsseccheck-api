@@ -25,6 +25,9 @@ namespace APIVerve.API.DNSSECChecker
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -33,10 +36,10 @@ namespace APIVerve.API.DNSSECChecker
         public string Domain { get; set; }
 
         [JsonProperty("dnssecEnabled")]
-        public bool DnssecEnabled { get; set; }
+        public bool? DnssecEnabled { get; set; }
 
         [JsonProperty("valid")]
-        public bool Valid { get; set; }
+        public bool? Valid { get; set; }
 
         [JsonProperty("records")]
         public Records Records { get; set; }
@@ -52,26 +55,44 @@ namespace APIVerve.API.DNSSECChecker
 
         [JsonProperty("recommendation")]
         public string Recommendation { get; set; }
+
+        [JsonProperty("riskScore")]
+        public long? RiskScore { get; set; }
+
+        [JsonProperty("riskLevel")]
+        public string RiskLevel { get; set; }
     }
 
     public partial class Details
     {
         [JsonProperty("dnskeyCount")]
-        public long DnskeyCount { get; set; }
+        public long? DnskeyCount { get; set; }
 
         [JsonProperty("dsCount")]
-        public long DsCount { get; set; }
+        public long? DsCount { get; set; }
     }
 
     public partial class Records
     {
         [JsonProperty("dnskey")]
-        public long Dnskey { get; set; }
+        public long? Dnskey { get; set; }
 
         [JsonProperty("ds")]
-        public long Ds { get; set; }
+        public long? Ds { get; set; }
 
         [JsonProperty("nsec")]
         public string Nsec { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
