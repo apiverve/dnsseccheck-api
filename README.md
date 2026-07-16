@@ -191,11 +191,44 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the DNSSEC Checker API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "domain": "cloudflare.com",
+    "dnssecEnabled": true,
+    "valid": true,
+    "records": {
+      "dnskey": 3,
+      "ds": 2,
+      "nsec": "NSEC3"
+    },
+    "errors": [],
+    "details": {
+      "dnskeyCount": 3,
+      "dsCount": 2
+    },
+    "status": "DNSSEC is properly configured with DS records at parent",
+    "recommendation": "DNSSEC is properly configured",
+    "riskScore": 5,
+    "riskLevel": "low"
+  }
 }
 ```
 
