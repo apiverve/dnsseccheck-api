@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/dnsseccheck:
     get:
-      summary: Check DNSSEC
+      summary: DNSSEC Checker
       description: Validate DNSSEC configuration for a domain
       operationId: dnsseccheck
       parameters:
