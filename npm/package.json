@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/dnsseccheck",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "DNSSEC Checker validates the DNSSEC (Domain Name System Security Extensions) configuration of a domain. It verifies that DNS responses are authenticated and haven't been tampered with.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "dnssec", "dnssec checker", "dnssec validator", "dns security", "domain security"
+    "dnssec checker", "dnssec check", "dnssec checker api", "check if dnssec is enabled", "dnssec test"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/dnsseccheck-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/dnsseccheck?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/dnsseccheck?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
