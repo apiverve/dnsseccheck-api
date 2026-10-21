@@ -1,7 +1,7 @@
 {
     "name": "apiverve/dnsseccheck",
     "description": "DNSSEC Checker validates the DNSSEC (Domain Name System Security Extensions) configuration of a domain. It verifies that DNS responses are authenticated and haven't been tampered with.",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "dnsseccheck",
-        "dnssec",
         "dnssec checker",
-        "dnssec validator",
-        "dns security",
-        "domain security"
+        "dnssec check",
+        "dnssec checker api",
+        "check if dnssec is enabled",
+        "dnssec test"
     ],
-    "homepage": "https://apiverve.com/marketplace/dnsseccheck?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/dnsseccheck?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/dnsseccheck",
