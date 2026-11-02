@@ -1,7 +1,7 @@
 name: apiverve_dnsseccheck
-description: DNSSEC Checker validates the DNSSEC (Domain Name System Security Extensions) configuration of a domain. It verifies that DNS responses are authenticated and haven't been tampered with.
-version: 1.1.14
-homepage: https://apiverve.com/marketplace/dnsseccheck?utm_source=dart&utm_medium=homepage
+description: "DNSSEC Checker validates the DNSSEC (Domain Name System Security Extensions) configuration of a domain. It verifies that DNS responses are authenticated and haven't been tampered with."
+version: 1.2.4
+homepage: https://apiverve.com/marketplace/dnsseccheck?utm_source=dart&utm_medium=referral&utm_content=homepage
 repository: https://github.com/apiverve/dnsseccheck-api/tree/main/dart
 
 environment:

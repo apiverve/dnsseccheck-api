@@ -6,22 +6,50 @@ class DnsseccheckResponse {
   final dynamic error;
   final DnsseccheckData? data;
 
+  /// Set only when the current plan locks one or more fields; null otherwise.
+  final PremiumInfo? premium;
+
   DnsseccheckResponse({
     required this.status,
     this.error,
     this.data,
+    this.premium,
   });
 
   factory DnsseccheckResponse.fromJson(Map<String, dynamic> json) => DnsseccheckResponse(
     status: json['status'] as String? ?? '',
     error: json['error'],
     data: json['data'] != null ? DnsseccheckData.fromJson(json['data']) : null,
+    premium: json['premium'] != null ? PremiumInfo.fromJson(json['premium']) : null,
   );
 
   Map<String, dynamic> toJson() => {
     'status': status,
     if (error != null) 'error': error,
     if (data != null) 'data': data,
+    if (premium != null) 'premium': premium!.toJson(),
+  };
+}
+
+/// Describes fields the current plan does not unlock. Locked fields arrive as null
+/// in [data], and [lockedFields] names them (nested ones use dot paths).
+class PremiumInfo {
+  final String? message;
+  final String? upgradeUrl;
+  final List<String>? lockedFields;
+
+  PremiumInfo({this.message, this.upgradeUrl, this.lockedFields});
+
+  factory PremiumInfo.fromJson(Map<String, dynamic> json) => PremiumInfo(
+    message: json['message'] as String?,
+    upgradeUrl: json['upgrade_url'] as String?,
+    lockedFields: (json['locked_fields'] as List?)?.map((e) => e.toString()).toList(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (message != null) 'message': message,
+    if (upgradeUrl != null) 'upgrade_url': upgradeUrl,
+    if (lockedFields != null) 'locked_fields': lockedFields,
   };
 }
 
@@ -36,6 +64,8 @@ class DnsseccheckData {
   DnsseccheckDataDetails? details;
   String? status;
   String? recommendation;
+  num? riskScore;
+  String? riskLevel;
 
   DnsseccheckData({
     this.domain,
@@ -46,6 +76,8 @@ class DnsseccheckData {
     this.details,
     this.status,
     this.recommendation,
+    this.riskScore,
+    this.riskLevel,
   });
 
   factory DnsseccheckData.fromJson(Map<String, dynamic> json) => DnsseccheckData(
@@ -57,12 +89,14 @@ class DnsseccheckData {
       details: json['details'] != null ? DnsseccheckDataDetails.fromJson(json['details']) : null,
       status: json['status'],
       recommendation: json['recommendation'],
+      riskScore: json['riskScore'],
+      riskLevel: json['riskLevel'],
     );
 }
 
 class DnsseccheckDataRecords {
-  int? dnskey;
-  int? ds;
+  num? dnskey;
+  num? ds;
   String? nsec;
 
   DnsseccheckDataRecords({
@@ -79,8 +113,8 @@ class DnsseccheckDataRecords {
 }
 
 class DnsseccheckDataDetails {
-  int? dnskeyCount;
-  int? dsCount;
+  num? dnskeyCount;
+  num? dsCount;
 
   DnsseccheckDataDetails({
     this.dnskeyCount,

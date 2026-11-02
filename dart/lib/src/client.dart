@@ -46,7 +46,7 @@ final _formatPatterns = {
 
 /// DNSSEC Checker API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/dnsseccheck?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/dnsseccheck?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [domain] (required) - The domain name to check DNSSEC configuration for [format: domain]
